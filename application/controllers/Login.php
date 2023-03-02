@@ -615,13 +615,20 @@ class Login extends CI_Controller
     {
         cek_session_admin();
         $id = $this->uri->segment(3);
+        $idsession = $this->session->username;
         if (isset($_POST['submit'])) {
             $this->model_users->users_update();
-            redirect('administrator/manajemenuser');
+            $this->session->set_flashdata('status', 'Data profile berhasil diubah');
+            redirect('login/edit_manajemenuser/' . $idsession);
         } else {
-            $data['mo'] = $this->model_modul->users_modul();
-            $data['rows'] = $this->model_users->users_edit($id)->row_array();
-            $this->template->load('administrator/template', 'administrator/mod_users/view_users_edit', $data);
+            //cek id user / username are same
+            if ($id == $idsession) {
+                $data['mo'] = $this->model_modul->users_modul();
+                $data['rows'] = $this->model_users->users_edit($id)->row_array();
+                $this->template->load('login/template', 'login/mod_users/view_users_edit', $data);
+            } else {
+                redirect('login/home');
+            }
         }
     }
 

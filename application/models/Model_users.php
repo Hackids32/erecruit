@@ -89,6 +89,7 @@ class Model_users extends CI_model
                 'email' => $this->db->escape_str($this->input->post('d')),
                 'no_telp' => $this->db->escape_str($this->input->post('e')),
                 'blokir' => $this->db->escape_str($this->input->post('h')),
+                'alamat' => $this->db->escape_str($this->input->post('alamat')),
                 'id_session' => md5($this->input->post('a'))
             );
             $this->db->where('username', $this->input->post('id'));
@@ -101,6 +102,7 @@ class Model_users extends CI_model
                 'email' => $this->db->escape_str($this->input->post('d')),
                 'no_telp' => $this->db->escape_str($this->input->post('e')),
                 'blokir' => $this->db->escape_str($this->input->post('h')),
+                'alamat' => $this->db->escape_str($this->input->post('alamat')),
                 'id_session' => md5($this->input->post('a'))
             );
             $this->db->where('username', $this->input->post('id'));

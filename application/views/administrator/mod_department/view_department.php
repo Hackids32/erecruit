@@ -20,7 +20,6 @@
                       foreach ($record->result_array() as $row) {
                         echo "<tr><td>$no</td>
                               <td>$row[nama_kategori]</td>
-                              <td><a target='_BLANK' href='" . base_url() . "berita/kategori/$row[kategori_seo]'>berita/kategori/$row[kategori_seo]</a></td>
                               <td>$row[aktif]</td>
                               <td><center>
                                 <a class='btn btn-success btn-xs' title='Edit Data' href='" . base_url() . "administrator/edit_department/$row[id_kategori]'><span class='glyphicon glyphicon-edit'></span></a>
